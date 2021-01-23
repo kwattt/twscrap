@@ -18,7 +18,7 @@ print("Followers", Profile.followers)
 print("Image url", Profile.profile_image)
 
 Tweets = TwScrap.get_tweets(Profile, include_rt=False, include_replies=False)
-    
+
 print(f"{target} last 5 tweets.")
 for tweet in Tweets[:5]:
 print("==##########==")
@@ -64,4 +64,5 @@ if tweet.media:
 |favorite_count|like count|int|
 |retweet_count|retweet count|int|
 |user_id|owner id|int
+|id|tweet id|int
 |media|tweet media (photo, gif, image)|list of dict, keys('type', 'url', 'video_url')|

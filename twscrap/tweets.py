@@ -3,7 +3,7 @@ import email.utils
 class Tweet: 
     def __init__(self, created_at, id, text, lang, quote, reply, favorite, retweets, user_id, media):
         self.created_at = created_at
-        self.id = id
+        self.id = int(id)
         self.text = text
         self.quote_count = quote
         self.lang = lang
