@@ -2,6 +2,8 @@
 A simple scraping package.  Currently it is possible to scrap the information of a profile and its tweets.
 from twscrap import TwitterScrap
 
+### Installation
+    python -m pip install -U git+https://github.com/kwattt/twscrap
   
 ### Example
 ```python
