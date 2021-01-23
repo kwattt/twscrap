@@ -8,7 +8,7 @@ class Tweet:
         self.quote_count = quote
         self.lang = lang
         self.reply_count = reply
-        self.likes = favorite
+        self.favorite_count = favorite
         self.retweet_count = retweets
         self.user_id = user_id
         self.media = media

@@ -14,7 +14,7 @@ print("Image url", Profile.profile_image)
 Tweets = TwScrap.get_tweets(Profile, include_rt=False, include_replies=False)
 
 print(f"{target} last 5 tweets.")
-for tweet in Tweets[:10]:
+for tweet in Tweets[:5]:
     print("==##########==")
     print("Content:", tweet.text)
     print("Likes:", tweet.likes)

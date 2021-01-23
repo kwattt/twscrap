@@ -20,7 +20,8 @@ class Profile():
         self.created_at = None
         self.default_profile_image = False
         self.profile_image = ""    
-        self.tweets = []
+        self.profile_banner = ""    
+        self.private = False    
 
     def parse_profile(self, data):
         self.id = data["data"]["user"]["rest_id"] 
@@ -30,7 +31,11 @@ class Profile():
         self.list_count = data["data"]["user"]["legacy"]["listed_count"]
         self.username = data["data"]["user"]["legacy"]["screen_name"]
         self.verified = data["data"]["user"]["legacy"]["verified"]
-        self.location = data["data"]["user"]["legacy"]["location"]
+        self.private = data["data"]["user"]["legacy"]["protected"]
+        
+        if "location" in data["data"]["user"]["legacy"]: 
+            self.location = data["data"]["user"]["legacy"]["location"]
+        
         self.real_name = data["data"]["user"]["legacy"]["name"]
 
         if "description" in data["data"]["user"]["legacy"]:
@@ -49,3 +54,6 @@ class Profile():
             r = requests.get(tmp_image)
             if r.status_code == 200:
                 self.profile_image = tmp_image
+
+        if "profile_banner_url" in data["data"]["user"]["legacy"]:
+            self.profile_banner = data["data"]["user"]["legacy"]["profile_banner_url"]
